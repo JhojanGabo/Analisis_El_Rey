@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { Background } from './components/effects/Background';
 import { Header }     from './components/layout/Header';
 import { Footer }     from './components/layout/Footer';
@@ -59,7 +59,7 @@ export default function App() {
   const [sesion, setSesion] = useState<SesionUsuario | null>(null);
 
   return (
-    <BrowserRouter basename={import.meta.env.BASE_URL}>
+    <HashRouter>
       {/* Fondo animado siempre presente */}
       <Background />
 
@@ -68,6 +68,6 @@ export default function App() {
       ) : (
         <AppLayout sesion={sesion} onLogout={() => setSesion(null)} />
       )}
-    </BrowserRouter>
+    </HashRouter>
   );
 }
